@@ -171,13 +171,3 @@ This project is inspired by modern cybersecurity practices including:
 * AI-based threat detection
 * Secure system design principles
 
----
-
-## 👨‍💻 Author
-
-**Mahalakshmi B (mahabala257)**
-
-* 💡 Domains: Data Analytics | NLP | ML | DL | Full Stack
-* 📌 Built as part of academic project & cybersecurity research
-
----
