@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Add Guest</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="navbar">
+<div class="logo">MGM Guest Registration</div>
+<div>
+<a href="/staff">Staff</a>
+<a href="/admin">Admin</a>
+<a href="/view_guests">Guests</a>
+<a href="/logout">Logout</a>
+</div>
+</div>
+
+<div class="container">
+
+<div class="card profile-card" style="background-image:linear-gradient(rgba(7,11,24,0.78),rgba(7,11,24,0.92)),url('https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=1400&q=80');background-size:cover;background-position:center;">
+<div class="profile-avatar">G</div>
+<div>
+<span class="badge">SECURE CHECK-IN MODULE</span>
+<h1>Guest Registration</h1>
+<p>
+Create new guest records for internal resort operations.
+All data is stored using fragmented privacy architecture.
+</p>
+</div>
+</div>
+
+<div class="card" style="max-width:760px;margin:auto;">
+
+<h2>Secure Guest Entry Form</h2>
+
+<p>
+Guest data is separated into:
+Basic / Contact / Sensitive collections to reduce breach impact.
+</p>
+
+<form method="POST">
+
+<input type="text"
+name="name"
+placeholder="Guest Full Name"
+required>
+
+<input type="text"
+name="phone"
+placeholder="Phone Number"
+required>
+
+<input type="email"
+name="email"
+placeholder="Email Address"
+required>
+
+<input type="text"
+name="address"
+placeholder="Residential Address"
+required>
+
+<label>Check-In Date</label>
+<input type="date"
+name="checkin"
+required>
+
+<label>Check-Out Date</label>
+<input type="date"
+name="checkout"
+required>
+
+<input type="text"
+name="idproof"
+placeholder="Passport / Aadhaar / ID Number"
+required>
+
+<button class="btn" type="submit">
+Save Guest Securely
+</button>
+
+</form>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h2>Privacy Layer</h2>
+<p>
+Only authorized roles can access full records. Staff sees masked sensitive information.
+</p>
+</div>
+
+<div class="card">
+<h2>Live Protection</h2>
+<div class="ai-wave">
+<span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+<p>
+All form submissions and record creation activities are logged for security review.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

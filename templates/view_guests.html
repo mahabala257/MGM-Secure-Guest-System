@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>View Guests</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="navbar">
+<div class="logo">MGM Guest Records</div>
+<div>
+<a href="/admin">Admin</a>
+<a href="/staff">Staff</a>
+<a href="/security">Security</a>
+<a href="/logout">Logout</a>
+</div>
+</div>
+
+<div class="container">
+
+<div class="card profile-card" style="background-image:linear-gradient(rgba(7,11,24,0.80),rgba(7,11,24,0.92)),url('https://images.unsplash.com/photo-1522798514-97ceb8c4f1c8?auto=format&fit=crop&w=1400&q=80');background-size:cover;background-position:center;">
+<div class="profile-avatar">R</div>
+<div>
+<span class="badge">PRIVACY CONTROLLED ACCESS</span>
+<h1>Registered Guest Data</h1>
+<p>
+Privacy-aware access is enabled. Staff users see masked sensitive information.
+All guest record views are continuously monitored.
+</p>
+</div>
+</div>
+
+<div class="card">
+
+<h2>Guest Registry</h2>
+
+<table>
+
+<tr>
+<th>Name</th>
+<th>Phone</th>
+<th>Email</th>
+<th>Check In</th>
+<th>Check Out</th>
+<th>ID Proof</th>
+<th>Created By</th>
+</tr>
+
+{% for guest in guests %}
+<tr>
+<td>{{ guest.name }}</td>
+<td>{{ guest.phone }}</td>
+<td>{{ guest.email }}</td>
+<td>{{ guest.checkin }}</td>
+<td>{{ guest.checkout }}</td>
+<td>{{ guest.idproof }}</td>
+<td>{{ guest.created_by }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h2>AI Monitoring Active</h2>
+<div class="ai-wave">
+<span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+<p>
+Repeated viewing behavior may trigger insider-threat alerts through anomaly detection.
+</p>
+</div>
+
+<div class="card">
+<h2>Security Test Tools</h2>
+<p>
+Use only for demonstration:
+simulate honeypot access to show automatic response engine.
+</p>
+<a href="/view_guests?simulate_attack=honeypot" class="btn">
+Simulate Honeypot Attack
+</a>
+</div>
+
+<div class="card" style="background-image:linear-gradient(rgba(7,11,24,0.78),rgba(7,11,24,0.92)),url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80');background-size:cover;background-position:center;">
+<h2>Fragmented Storage</h2>
+<p>
+Guest information is stored across multiple isolated collections to reduce breach impact.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

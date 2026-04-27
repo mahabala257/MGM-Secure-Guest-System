@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Create User</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="navbar">
+<div class="logo">User Provisioning Center</div>
+<div>
+<a href="/admin">Admin</a>
+<a href="/security">Security</a>
+<a href="/unlock_user">Unlock</a>
+<a href="/logout">Logout</a>
+</div>
+</div>
+
+<div class="container">
+
+<div class="card profile-card" style="background-image:linear-gradient(rgba(7,11,24,0.80),rgba(7,11,24,0.92)),url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80');background-size:cover;background-position:center;">
+<div class="profile-avatar">U</div>
+<div>
+<span class="badge">IDENTITY ACCESS MANAGEMENT</span>
+<h1>Create New User Account</h1>
+<p>
+Admin and Security teams can provision users with temporary credentials and mandatory first-login password reset.
+</p>
+</div>
+</div>
+
+<div class="card" style="max-width:700px;margin:auto;">
+
+<h2>Provision Employee Account</h2>
+
+<p>
+Temporary password will be generated automatically.
+The user must change it before accessing the system.
+</p>
+
+{% if error %}
+<p class="alert">{{ error }}</p>
+{% endif %}
+
+<form method="POST">
+
+<input type="text"
+name="username"
+placeholder="Enter Username"
+required>
+
+<label>Select Role</label>
+
+<select name="role" required>
+<option value="">Choose Role</option>
+<option value="staff">Staff</option>
+<option value="security">Security</option>
+<option value="admin">Admin</option>
+</select>
+
+<button class="btn" type="submit">
+Create User
+</button>
+
+</form>
+
+{% if generated_password %}
+
+<div class="card risk-safe" style="margin-top:20px;">
+
+<h3>User Created Successfully</h3>
+
+<p><b>Temporary Username:</b> {{ request.form.username }}</p>
+
+<p><b>Temporary Password:</b>
+<span class="success">{{ generated_password }}</span>
+</p>
+
+<p>
+Share this password securely with the employee. They will be forced to change it during first login.
+</p>
+
+</div>
+
+{% endif %}
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h2>Secure Onboarding</h2>
+<p>
+Passwords are stored as hashes. Plain passwords are never stored in the database.
+</p>
+</div>
+
+<div class="card">
+<h2>Access Governance</h2>
+<p>
+Admin and Security roles can create users, while staff cannot access this page.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Staff Dashboard</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="navbar">
+<div class="logo">MGM Staff Workspace</div>
+<div>
+<a href="/add_guest">Add Guest</a>
+<a href="/view_guests">Guests</a>
+<a href="/logout">Logout</a>
+</div>
+</div>
+
+<div class="container">
+
+<div class="card profile-card" style="background-image:linear-gradient(rgba(7,11,24,0.78),rgba(7,11,24,0.92)),url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1400&q=80');background-size:cover;background-position:center;">
+<div class="profile-avatar">S</div>
+<div>
+<span class="badge">FRONT DESK SECURE SESSION</span>
+<h1>Welcome Staff</h1>
+<p>
+Manage guest check-ins, create records, and view privacy-masked guest data.
+All activity is monitored by the AI security engine.
+</p>
+</div>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h2>Guest Check-In</h2>
+<p>Create guest records using fragmented storage across basic, contact, and sensitive data collections.</p>
+<a href="/add_guest" class="btn">Add Guest</a>
+</div>
+
+<div class="card">
+<h2>Privacy-Masked Guests</h2>
+<p>View only permitted guest details. Phone, email, and ID proof are masked for privacy.</p>
+<a href="/view_guests" class="btn">View Guests</a>
+</div>
+
+<div class="card risk-safe">
+<h2>Security Policy</h2>
+<p>
+Unauthorized access, repeated guest viewing, or suspicious behavior creates alerts automatically.
+</p>
+</div>
+
+<div class="card">
+<h2>Session Safety</h2>
+<p>
+Inactive sessions auto logout after 15 minutes to reduce unattended terminal risk.
+</p>
+<div class="scan-line"></div>
+</div>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h2>Staff Activity Monitor</h2>
+<div class="ai-wave">
+<span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+<p>
+Your access pattern is continuously evaluated to detect mass data extraction attempts.
+</p>
+</div>
+
+<div class="card" style="background-image:linear-gradient(rgba(7,11,24,0.78),rgba(7,11,24,0.92)),url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1200&q=80');background-size:cover;background-position:center;">
+<h2>Internal Resort Operations</h2>
+<p>
+This system is only for resort staff, admin, and security teams — not for public online booking.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

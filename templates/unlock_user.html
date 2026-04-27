@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Unlock Accounts</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="navbar">
+<div class="logo">Account Recovery Center</div>
+<div>
+<a href="/admin">Admin</a>
+<a href="/security">Security</a>
+<a href="/register_user">Users</a>
+<a href="/logout">Logout</a>
+</div>
+</div>
+
+<div class="container">
+
+<div class="card profile-card" style="background-image:linear-gradient(rgba(7,11,24,0.80),rgba(7,11,24,0.92)),url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=80');background-size:cover;background-position:center;">
+<div class="profile-avatar">R</div>
+<div>
+<span class="badge">SECURITY ACCOUNT RECOVERY</span>
+<h1>Unlock User Accounts</h1>
+<p>
+Accounts locked due to brute-force attacks, honeypot triggers, or critical incidents
+can be restored here by Admin or Security teams.
+</p>
+</div>
+</div>
+
+<div class="card">
+
+<h2>Recovery Console</h2>
+
+<table>
+
+<tr>
+<th>Username</th>
+<th>Role</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+
+{% for user in users %}
+<tr>
+<td>{{ user.username }}</td>
+<td>{{ user.role }}</td>
+
+{% if user.account_locked %}
+<td class="alert">Locked</td>
+<td>
+<form method="POST" style="margin:0;">
+<input type="hidden" name="username" value="{{ user.username }}">
+<button class="btn" type="submit">Unlock</button>
+</form>
+</td>
+
+{% else %}
+<td class="success">Active</td>
+<td>—</td>
+{% endif %}
+
+</tr>
+{% endfor %}
+
+</table>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h2>Auto Lock Triggers</h2>
+<p>
+Repeated wrong passwords, honeypot access, and severe suspicious activity can lock accounts automatically.
+</p>
+</div>
+
+<div class="card">
+<h2>Recovery Logging</h2>
+<div class="ai-wave">
+<span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+<p>
+Every unlock operation is recorded in the security dashboard for audit review.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

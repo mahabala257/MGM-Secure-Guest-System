@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Secure Login</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="navbar">
+<div class="logo">MGM Secure Login</div>
+<div>
+<a href="/">Home</a>
+</div>
+</div>
+
+<div class="container">
+
+<div class="hero-panel">
+
+<div class="card hero-card" style="max-width:520px;">
+
+<span class="badge">INTERNAL RESORT ACCESS ONLY</span>
+
+<h1 style="color:#d4af37;">Zero Trust Login</h1>
+
+<p>
+Secure access for Admin, Staff, and Security teams.
+Risk-based authentication, CAPTCHA challenge, brute-force protection,
+and forced password reset are enabled.
+</p>
+
+<div class="scan-line"></div>
+
+{% if error %}
+<p class="alert">{{ error }}</p>
+{% endif %}
+
+<form method="POST">
+
+<input type="text"
+name="username"
+placeholder="Username"
+required>
+
+<input type="password"
+name="password"
+placeholder="Password"
+required>
+
+{% if captcha_question %}
+<label>Security Check: {{ captcha_question }}</label>
+<input type="text"
+name="captcha_answer"
+placeholder="Enter CAPTCHA answer"
+required>
+{% endif %}
+
+<button class="btn" type="submit">
+Login Securely
+</button>
+
+</form>
+
+<p style="font-size:14px;">
+First-time users must change their company-provided temporary password.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

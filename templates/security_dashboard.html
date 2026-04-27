@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Security Dashboard</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="navbar">
+<div class="logo">MGM Security Operations Center</div>
+<div>
+<a href="/admin">Admin</a>
+<a href="/view_guests">Guest Records</a>
+<a href="/logout">Logout</a>
+</div>
+</div>
+
+<div class="container">
+
+<div class="card soc-banner">
+
+<div>
+<span class="badge">ZERO TRUST SECURITY ACTIVE</span>
+<h1>AI Threat Monitoring Console</h1>
+<p>
+Real-time behavioral analytics, Isolation Forest anomaly detection, honeypot traps,
+risk-based authentication, and automated incident response are active.
+</p>
+<div class="scan-line"></div>
+</div>
+
+<div class="threat-orb">
+<span>LIVE<br>SCAN</span>
+</div>
+
+</div>
+
+<div class="grid">
+
+<div class="card risk-high">
+<h2>Total Alerts</h2>
+<h1 class="metric alert">{{ total_alerts }}</h1>
+<p>All security incidents recorded by the monitoring engine.</p>
+</div>
+
+<div class="card risk-critical">
+<h2>Honeypot Alerts</h2>
+<h1 class="metric alert">{{ honeypot_alerts }}</h1>
+<p>Trap guest records triggered by suspicious access.</p>
+</div>
+
+<div class="card risk-critical">
+<h2>High Risk Events</h2>
+<h1 class="metric alert">{{ high_risk }}</h1>
+<p>Critical or high-risk events requiring immediate review.</p>
+</div>
+
+<div class="card risk-high">
+<h2>Brute Force Attempts</h2>
+<h1 class="metric alert">{{ brute_force }}</h1>
+<p>Repeated failed login attempts and CAPTCHA triggers.</p>
+</div>
+
+<div class="card risk-safe">
+<h2>AI ML Alerts</h2>
+<h1 class="metric success">{{ ai_alerts }}</h1>
+<p>Isolation Forest anomaly detections from access behavior.</p>
+</div>
+
+<div class="card risk-safe">
+<h2>System Status</h2>
+<h1 class="success">ACTIVE</h1>
+<p>Security response engine is online and monitoring sessions.</p>
+</div>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h2>Honeypot Trap Simulation</h2>
+<div class="honeypot-box">
+<div class="trap-ring"></div>
+<div class="trap-core">TRAP<br>DATA</div>
+</div>
+<p>
+Fake guest records are placed inside the system. If accessed, the session is frozen
+and the account is locked automatically.
+</p>
+<a href="/view_guests?simulate_attack=honeypot" class="btn">Simulate Honeypot Attack</a>
+</div>
+
+<div class="card">
+<h2>AI Behavior Scanner</h2>
+<div class="ai-wave">
+<span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+<p>
+Isolation Forest analyzes access logs, login time, session behavior, and abnormal usage patterns.
+</p>
+</div>
+
+<div class="card" style="background-image:linear-gradient(rgba(7,11,24,0.78),rgba(7,11,24,0.9)),url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80');background-size:cover;background-position:center;">
+<h2>Cyber Defense Layer</h2>
+<p>
+This layer protects internal resort systems from credential abuse, insider threats,
+and abnormal data access.
+</p>
+</div>
+
+</div>
+
+<div class="card">
+<h2>Recent Security Events</h2>
+
+<table>
+<tr>
+<th>User</th>
+<th>Attack Type</th>
+<th>Activity</th>
+<th>Risk</th>
+<th>Action</th>
+<th>Time</th>
+</tr>
+
+{% for alert in alerts %}
+<tr>
+<td>{{ alert.user }}</td>
+<td>{{ alert.attack_type }}</td>
+<td>{{ alert.message }}</td>
+<td class="alert">{{ alert.risk }}</td>
+<td>{{ alert.action }}</td>
+<td>{{ alert.time }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</div>
+
+</div>
+
+</body>
+</html>
