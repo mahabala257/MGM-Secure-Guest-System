@@ -155,12 +155,6 @@ python app.py
 
 ---
 
-## 📄 Project Report
-
-Detailed documentation is available in:
-📎 **lab-report M&M.docx**
-
----
 
 
 ## ⭐ Acknowledgment
