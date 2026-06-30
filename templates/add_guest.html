@@ -9,8 +9,7 @@
 <div class="navbar">
 <div class="logo">MGM Guest Registration</div>
 <div>
-<a href="/staff">Staff</a>
-<a href="/admin">Admin</a>
+<a href="/dashboard">Home</a>
 <a href="/view_guests">Guests</a>
 <a href="/logout">Logout</a>
 </div>
@@ -40,6 +39,7 @@ Basic / Contact / Sensitive collections to reduce breach impact.
 </p>
 
 <form method="POST">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
 <input type="text"
 name="name"
@@ -71,9 +71,19 @@ required>
 name="checkout"
 required>
 
+<label>ID Proof Type</label>
+<select name="idproof_type" required>
+<option value="">Select ID Type</option>
+<option value="Passport">Passport</option>
+<option value="Aadhaar">Aadhaar</option>
+<option value="Driving License">Driving License</option>
+<option value="Voter ID">Voter ID</option>
+<option value="PAN Card">PAN Card</option>
+</select>
+
 <input type="text"
 name="idproof"
-placeholder="Passport / Aadhaar / ID Number"
+placeholder="ID Number"
 required>
 
 <button class="btn" type="submit">

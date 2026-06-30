@@ -1,0 +1,31 @@
+services:
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  web:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      MONGO_URI: mongodb://mongo:27017/
+      SECRET_KEY: ${SECRET_KEY:-change-me-in-prod}
+      DATA_ENCRYPTION_KEY: ${DATA_ENCRYPTION_KEY}
+      COOKIE_SECURE: ${COOKIE_SECURE:-false}
+      ADMIN_DEFAULT_PASSWORD: ${ADMIN_DEFAULT_PASSWORD:-Admin@12345}
+      STAFF_DEFAULT_PASSWORD: ${STAFF_DEFAULT_PASSWORD:-Staff@12345}
+      SECURITY_DEFAULT_PASSWORD: ${SECURITY_DEFAULT_PASSWORD:-Security@12345}
+    depends_on:
+      mongo:
+        condition: service_healthy
+
+volumes:
+  mongo_data:

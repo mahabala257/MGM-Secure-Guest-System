@@ -9,8 +9,7 @@
 <div class="navbar">
 <div class="logo">Account Recovery Center</div>
 <div>
-<a href="/admin">Admin</a>
-<a href="/security">Security</a>
+<a href="/dashboard">Home</a>
 <a href="/register_user">Users</a>
 <a href="/logout">Logout</a>
 </div>
@@ -41,6 +40,7 @@ can be restored here by Admin or Security teams.
 <th>Role</th>
 <th>Status</th>
 <th>Action</th>
+{% if session.role == 'admin' %}<th>Delete</th>{% endif %}
 </tr>
 
 {% for user in users %}
@@ -52,6 +52,7 @@ can be restored here by Admin or Security teams.
 <td class="alert">Locked</td>
 <td>
 <form method="POST" style="margin:0;">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 <input type="hidden" name="username" value="{{ user.username }}">
 <button class="btn" type="submit">Unlock</button>
 </form>
@@ -60,6 +61,22 @@ can be restored here by Admin or Security teams.
 {% else %}
 <td class="success">Active</td>
 <td>—</td>
+{% endif %}
+
+{% if session.role == 'admin' %}
+<td>
+{% if user.username != session.user %}
+<form method="POST" action="/delete_user" style="margin:0;"
+onsubmit="return confirm('Delete user {{ user.username }}? This cannot be undone.');">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+<input type="hidden" name="username" value="{{ user.username }}">
+<button class="btn" type="submit"
+style="background:#b91c1c;color:#fff;">Delete</button>
+</form>
+{% else %}
+<span style="color:#9ca3af;">(you)</span>
+{% endif %}
+</td>
 {% endif %}
 
 </tr>

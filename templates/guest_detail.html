@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Guest Details</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="navbar">
+<div class="logo">MGM Guest Record</div>
+<div>
+<a href="/dashboard">Home</a>
+<a href="/view_guests">Guests</a>
+<a href="/logout">Logout</a>
+</div>
+</div>
+
+<div class="container">
+
+<div class="card" style="max-width:680px;margin:auto;">
+<span class="badge">PRIVACY CONTROLLED RECORD</span>
+<h1>{{ guest.name }}</h1>
+
+<table>
+<tr><th>Reference ID</th><td>{{ guest.guest_id }}</td></tr>
+<tr><th>Phone</th><td>{{ guest.phone }}</td></tr>
+<tr><th>Email</th><td>{{ guest.email }}</td></tr>
+<tr><th>Address</th><td>{{ guest.address }}</td></tr>
+<tr><th>Check In</th><td>{{ guest.checkin }}</td></tr>
+<tr><th>Check Out</th><td>{{ guest.checkout }}</td></tr>
+<tr><th>ID Type</th><td>{{ guest.idproof_type }}</td></tr>
+<tr><th>ID Proof</th><td>{{ guest.idproof }}</td></tr>
+<tr><th>Created By</th><td>{{ guest.created_by }}</td></tr>
+</table>
+
+<p style="margin-top:18px;">
+<a href="/view_guests" class="btn">Back to Records</a>
+</p>
+</div>
+
+</div>
+
+</body>
+</html>

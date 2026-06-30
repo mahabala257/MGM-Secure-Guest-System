@@ -9,7 +9,8 @@
 <div class="navbar">
 <div class="logo">MGM Security Operations Center</div>
 <div>
-<a href="/admin">Admin</a>
+<a href="/register_user">Users</a>
+<a href="/unlock_user">Unlock</a>
 <a href="/view_guests">Guest Records</a>
 <a href="/logout">Logout</a>
 </div>
@@ -78,16 +79,16 @@ risk-based authentication, and automated incident response are active.
 <div class="grid">
 
 <div class="card">
-<h2>Honeypot Trap Simulation</h2>
+<h2>Honeypot Trap</h2>
 <div class="honeypot-box">
 <div class="trap-ring"></div>
 <div class="trap-core">TRAP<br>DATA</div>
 </div>
 <p>
-Fake guest records are placed inside the system. If accessed, the session is frozen
-and the account is locked automatically.
+A decoy guest record is hidden in the system and never shown in any list.
+Any direct access to it indicates record enumeration by an intruder — the
+session is frozen and the account is locked automatically.
 </p>
-<a href="/view_guests?simulate_attack=honeypot" class="btn">Simulate Honeypot Attack</a>
 </div>
 
 <div class="card">

@@ -5,3 +5,11 @@ python-dotenv
 pandas
 scikit-learn
 numpy
+flask-wtf
+flask-limiter
+pyotp
+qrcode
+pillow
+cryptography
+pytest
+mongomock

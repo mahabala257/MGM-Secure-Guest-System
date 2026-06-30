@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Two-Factor Verification</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="navbar">
+<div class="logo">MFA Challenge</div>
+<div>
+<a href="/logout">Cancel</a>
+</div>
+</div>
+
+<div class="container">
+<div class="card hero-card" style="max-width:480px;margin:auto;">
+
+<span class="badge">SECOND FACTOR REQUIRED</span>
+<h1 style="color:#d4af37;">Enter Authentication Code</h1>
+
+<p>
+Open your authenticator app and enter the current 6-digit code
+for <b>MGM Secure Guest System</b>.
+</p>
+
+<div class="scan-line"></div>
+
+{% if error %}
+<p class="alert">{{ error }}</p>
+{% endif %}
+
+<form method="POST">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+<input type="text" name="code" placeholder="6-digit code"
+inputmode="numeric" autocomplete="one-time-code" required autofocus>
+<button class="btn" type="submit">Verify</button>
+</form>
+
+</div>
+</div>
+
+</body>
+</html>

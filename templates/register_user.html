@@ -9,8 +9,7 @@
 <div class="navbar">
 <div class="logo">User Provisioning Center</div>
 <div>
-<a href="/admin">Admin</a>
-<a href="/security">Security</a>
+<a href="/dashboard">Home</a>
 <a href="/unlock_user">Unlock</a>
 <a href="/logout">Logout</a>
 </div>
@@ -43,6 +42,7 @@ The user must change it before accessing the system.
 {% endif %}
 
 <form method="POST">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
 <input type="text"
 name="username"
