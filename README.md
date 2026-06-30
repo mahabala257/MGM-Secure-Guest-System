@@ -156,7 +156,3 @@ RBAC, honeypot, encrypted storage, security headers).
 * Centralized rate-limit store (Redis) for multi-instance deploys
 
 ---
-
-## 👤 Maintainer
-
-Developed and maintained by **Mahalakshmi B** ([@mahabala257](https://github.com/mahabala257)).
